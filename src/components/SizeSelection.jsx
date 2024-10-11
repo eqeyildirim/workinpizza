@@ -45,15 +45,15 @@ function SizeSelection({ size, handleChange }) {
     <Container>
       <InputWrapper>
         <HiddenRadio type="radio" id="small" name="size" value="small" checked={size === 'small'} onChange={handleChange} />
-        <Label htmlFor="small" data-size="Küçük"></Label>
+        <Label htmlFor="small" data-size="S"></Label>
       </InputWrapper>
       <InputWrapper>
         <HiddenRadio type="radio" id="medium" name="size" value="medium" checked={size === 'medium'} onChange={handleChange} />
-        <Label htmlFor="medium" data-size="Orta"></Label>
+        <Label htmlFor="medium" data-size="M"></Label>
       </InputWrapper>
       <InputWrapper>
         <HiddenRadio type="radio" id="large" name="size" value="large" checked={size === 'large'} onChange={handleChange} />
-        <Label htmlFor="large" data-size="Büyük"></Label>
+        <Label htmlFor="large" data-size="L"></Label>
       </InputWrapper>
     </Container>
   );
