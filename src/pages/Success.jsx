@@ -1,80 +1,128 @@
-import React from 'react';
-import styled, { keyframes, createGlobalStyle } from 'styled-components';
-import { FaCheckCircle } from 'react-icons/fa';
-
+import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-  html, body, #root {
+  * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+  }
+  html, body, #root {
     height: 100%;
-    width: 100%; 
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-  }
-
-  body {
-    font-family: 'Barlow', sans-serif;
-    background-color: #f8f8f8;
+    margin: auto;
+    padding: 0;
+    width: 100%;
+    background-color: #CE2829;
+    font-family: "Barlow", sans-serif;
   }
 `;
-
-
-const fadeIn = keyframes`
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+const PageWrapper = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 3rem;
+height: 100vh;
+@media (max-width: 480px) {
+gap:1rem;
+}
+`;
+const SectionFirst = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 1rem;
+h1{
+color: white;
+font-size:3rem;};
+h2 {
+color:white;
+font-size:2rem}
+@media (max-width: 480px) {
+gap: 0.5rem;
+h1 {
+font-size: 2rem;
+}
+h2 {
+font-size: 1rem;
+}}`;
+const Ontheway = styled.div`
+color: #FDC913;
+font-size: 2rem;
+font-family: "Satisfy", cursive;
+`;
+const Separator = styled.div`
+border-bottom: white solid 0.05rem;
+margin: 0 ;
+width: 70%;
+`;
+const OrderTotal = styled.div`
+border:#FFFFFF solid 0.05rem;
+border-radius: 0.5rem;
+text-align:left;
+padding: 2rem;
+h2 {
+color:white;
+	font-weight: 500;
+  padding: 0 2rem;
+  font-size: 1.5rem;
+}
+h3 {
+color:white;
+	font-weight: 300;
+  padding: 0 2rem;
+  font-size:1.5rem;
+}
+@media (max-width: 480px) {
+h2{
+font-size:1rem;}
+h3{
+font-size:1rem;}
+padding: 0.5rem;
+}
+`;
+const TotalWrapper = styled.p`
+display:flex;
+justify-content:space-between;
+align-items: center;
+`;
+const SelectedAddtWrapper=styled.p`
+display: flex;
+flex-direction:column;
+gap:0.5rem;
+width:70%;
+align-items:flex-start;
+color: #FFFFFF;
+font-weight:lighter;
+text-align:left;
 `;
 
-const SuccessContainer = styled.div`
-  background: linear-gradient(135deg, #ff0000, #ff8c00);
-  color: white;
-  width: 100%; 
-  height: 100vh; 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
-  animation: ${fadeIn} 0.5s ease-in-out;
-`;
+export default function Success(props) {
+  const { size, dough, addtIngredients, addtIngredientsTotal, unit } = props;
 
-const Icon = styled(FaCheckCircle)`
-  font-size: 4rem;
-  margin-bottom: 20px;
-  color: #fff;
-`;
-
-const Message = styled.h1`
-  font-size: 2.5rem;
-  margin: 0;
-  font-family: 'Barlow', sans-serif;
-`;
-
-const SubText = styled.p`
-  font-size: 1.2rem;
-  margin-top: 10px;
-  font-family: 'Barlow', sans-serif;
-`;
-
-function Success() {
   return (
     <>
-      <GlobalStyle /> 
-      <SuccessContainer>
-        <Icon />
-        <Message>Onaylandı!</Message>
-        <SubText>Teşekkür ederiz, siparişiniz başarıyla oluşturuldu ve hemen Workintech'e gönderiyoruz 😊</SubText>
-      </SuccessContainer>
+      <GlobalStyle />
+      <PageWrapper>
+        <SectionFirst>
+        <h1>Teknolojik Yemekler</h1>
+        <h1><Ontheway>Workintech</Ontheway>Sipariş alındı!</h1>
+        </SectionFirst>
+        <Separator> </Separator>
+        <SectionFirst>
+        <h2>Position Absolute Spicy Pizza</h2>
+      <SelectedAddtWrapper>
+          <h3>Boyut: </h3>{size}
+          <h3>Kalınlık: </h3>{dough}
+          <h3>Ek malzemeler: </h3>{addtIngredients.join(", ")}
+        </SelectedAddtWrapper>
+        </SectionFirst>
+      <OrderTotal>
+            <h2>Sipariş Toplamı:</h2>
+            <TotalWrapper><h2>Seçimler </h2><h3>{addtIngredientsTotal * unit} ₺</h3></TotalWrapper>
+            <TotalWrapper><h2>Toplam: </h2><h3>{(85.50 + addtIngredientsTotal) * unit} ₺</h3></TotalWrapper>
+      </OrderTotal>
+
+      </PageWrapper>
     </>
   );
 }
-
-export default Success;
