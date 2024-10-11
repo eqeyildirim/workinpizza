@@ -2,16 +2,16 @@ import React from 'react';
 import styled, { keyframes, createGlobalStyle } from 'styled-components';
 import { FaCheckCircle } from 'react-icons/fa';
 
-// Global stiller
+
 const GlobalStyle = createGlobalStyle`
   html, body, #root {
     margin: 0;
     padding: 0;
     height: 100%;
-    width: 100%; /* Genişliği tam yap */
+    width: 100%; 
     display: flex;
-    justify-content: center; /* Yatayda ortala */
-    align-items: center; /* Dikeyde ortala */
+    justify-content: center; 
+    align-items: center; 
   }
 
   body {
@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-// Fade-in animasyonu
+
 const fadeIn = keyframes`
   from {
     opacity: 0;
@@ -33,10 +33,10 @@ const fadeIn = keyframes`
 `;
 
 const SuccessContainer = styled.div`
-  background: linear-gradient(135deg, #ff9966, #ff5e62); /* Gradient arka plan */
+  background: linear-gradient(135deg, #ff0000, #ff8c00);
   color: white;
-  width: 100%; /* Genişliği tam yap */
-  height: 100vh; /* Yüksekliği tam ekran */
+  width: 100%; 
+  height: 100vh; 
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -67,7 +67,7 @@ const SubText = styled.p`
 function Success() {
   return (
     <>
-      <GlobalStyle /> {/* Global stil bileşeni */}
+      <GlobalStyle /> 
       <SuccessContainer>
         <Icon />
         <Message>Onaylandı!</Message>

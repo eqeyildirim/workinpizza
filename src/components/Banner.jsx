@@ -67,10 +67,12 @@ font-weight: bold;
   }
 `;
 const Subtitle = styled.div`
-color: #FDC913;
-font-size: 2rem;
-font-family: "Satisfy", cursive;
+  color: #FDC913;
+  font-size: 2rem;
+  font-family: "Satisfy", cursive;
+  font-style: italic; 
 `;
+
 export default function Banner() {
   return (
     <>
