@@ -350,7 +350,7 @@ function handleChange(event) {
         const isAddtIngredientsValid = validateAddtIngredients(updatedAddtIngredients);
         setErrors({ ...errors, addtIngredients: !isAddtIngredientsValid });
       
-        setaddtIngredientsTotal(updatedAddtIngredients.length * 1.5); 
+        setaddtIngredientsTotal(updatedAddtIngredients.length * 5); 
       } else {
         setFormData({ ...formData, [name]: value });
 
@@ -467,7 +467,7 @@ function handleChange(event) {
         <OrderTexts>
         <Titles>Sipariş Toplamı</Titles>
         <SelectionsWrapper><Selections>Seçimleriniz</Selections><SelectionsLira>{addtIngredientsTotal*unit} ₺</SelectionsLira></SelectionsWrapper>
-        <TotalWrapper><Total>Toplam</Total><TotalLira>{(15.50 + addtIngredientsTotal) * unit} ₺</TotalLira></TotalWrapper>
+        <TotalWrapper><Total>Toplam</Total><TotalLira>{(85.50 + addtIngredientsTotal) * unit} ₺</TotalLira></TotalWrapper>
         </OrderTexts>
         <PlaceOrder type="submit" disabled={!isValid} data-cy="submit-orderPizza-form">Fırına Yolla!</PlaceOrder>
     </OrderTotal>
